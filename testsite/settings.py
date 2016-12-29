@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'testsite.wsgi.application'
 #    }
 #}
 
- DATABASES = {
-     'default': {
+DATABASES = {
+    'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
          'NAME': 'eventsdb',
          'USER': 'merlin',
@@ -94,10 +94,10 @@ WSGI_APPLICATION = 'testsite.wsgi.application'
      }
  }
 
- DATABASES = {'default': dj_database_url.config(default='postgres://merlin:sayone@localhost:5432/eventsdb')}
+DATABASES = {'default': dj_database_url.config(default='postgres://merlin:sayone@localhost:5432/eventsdb')}
 
- db_from_env = dj_database_url.config(conn_max_age=500)
- DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
