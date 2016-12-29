@@ -81,8 +81,23 @@ WSGI_APPLICATION = 'testsite.wsgi.application'
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 #}
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'eventsdb',
+         'USER': 'merlin',
+         'PASSWORD': 'sayone',
+         'HOST': 'localhost',
+         'PORT': '5432',
+     }
+ }
+
+ DATABASES = {'default': dj_database_url.config(default='postgres://merlin:sayone@localhost:5432/eventsdb')}
+
+ db_from_env = dj_database_url.config(conn_max_age=500)
+ DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
